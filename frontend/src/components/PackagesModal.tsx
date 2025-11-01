@@ -47,7 +47,7 @@ export function PackagesModal({ isOpen, onClose, onPurchase }: PackagesModalProp
         <div className="p-6">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold">
-              {t('packages.title', 'Выберите пакет генераций')}
+              {t('packages.title')}
             </h2>
             <button
               onClick={onClose}
@@ -60,7 +60,7 @@ export function PackagesModal({ isOpen, onClose, onPurchase }: PackagesModalProp
           {/* Currency selector */}
           <div className="flex items-center gap-4 mb-6">
             <span className="text-sm font-medium">
-              {t('packages.currency', 'Валюта')}:
+              {t('packages.currency')}:
             </span>
             <div className="flex gap-2">
               <button
@@ -99,7 +99,7 @@ export function PackagesModal({ isOpen, onClose, onPurchase }: PackagesModalProp
               >
                 {pkg.popular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full">
-                    {t('packages.popular', 'Популярный')}
+                    {t('packages.popular')}
                   </div>
                 )}
                 
@@ -114,28 +114,28 @@ export function PackagesModal({ isOpen, onClose, onPurchase }: PackagesModalProp
                     </span>
                   </div>
                   <p className="text-sm text-muted-foreground mt-2">
-                    {pkg.count} {t('packages.generations', 'генераций')}
+                    {pkg.count} {t('packages.generations')}
                   </p>
                   <p className="text-xs text-muted-foreground mt-1">
                     {selectedCurrency === 'RUB'
                       ? `${(pkg.price_rub / pkg.count).toFixed(1)}₽`
                       : `$${(pkg.price_usd / pkg.count).toFixed(2)}`
-                    } / {t('packages.perGeneration', 'генерация')}
+                    } / {t('packages.perGeneration')}
                   </p>
                 </div>
 
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-center gap-2 text-sm">
                     <Check className="h-4 w-4 text-primary flex-shrink-0" />
-                    <span>{pkg.count} {t('packages.generations', 'генераций')}</span>
+                    <span>{pkg.count} {t('packages.generations')}</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm">
                     <Check className="h-4 w-4 text-primary flex-shrink-0" />
-                    <span>{t('packages.highQuality', 'Высокое качество')}</span>
+                    <span>{t('packages.highQuality')}</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm">
                     <Check className="h-4 w-4 text-primary flex-shrink-0" />
-                    <span>{t('packages.noWatermark', 'Без водяных знаков')}</span>
+                    <span>{t('packages.noWatermark')}</span>
                   </li>
                 </ul>
 
@@ -145,7 +145,7 @@ export function PackagesModal({ isOpen, onClose, onPurchase }: PackagesModalProp
                   variant={pkg.popular ? 'default' : 'outline'}
                 >
                   <Sparkles className="h-4 w-4 mr-2" />
-                  {t('packages.buy', 'Купить')}
+                  {t('packages.buy')}
                 </Button>
               </Card>
             ))}
@@ -153,7 +153,7 @@ export function PackagesModal({ isOpen, onClose, onPurchase }: PackagesModalProp
 
           <div className="mt-6 text-center text-sm text-muted-foreground">
             <p>
-              {t('packages.freePlan', 'Бесплатный план: 1 генерация в день')}
+              {t('packages.freePlan')}
             </p>
           </div>
         </div>
@@ -161,4 +161,3 @@ export function PackagesModal({ isOpen, onClose, onPurchase }: PackagesModalProp
     </div>
   )
 }
-

@@ -5,7 +5,6 @@ import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { Textarea } from './ui/textarea'
 import { Upload, Trash2, Sparkles, Type } from 'lucide-react'
-import Konva from 'konva'
 
 interface CollageItem {
   id: string
@@ -347,9 +346,15 @@ export function CollageEditor({ onGenerate, isGenerating }: CollageEditorProps) 
                     onSelect={() => setSelectedId(item.id)}
                     onUpdate={(updates) => {
                       setItems((prev) =>
-                        prev.map((i) =>
-                          i.id === item.id ? { ...i, ...updates } : i
-                        )
+                        prev.map((canvasItem) => {
+                          if (canvasItem.id !== item.id) {
+                            return canvasItem
+                          }
+                          if (canvasItem.type !== 'image') {
+                            return canvasItem
+                          }
+                          return { ...canvasItem, ...updates }
+                        })
                       )
                     }}
                   />
@@ -363,9 +368,15 @@ export function CollageEditor({ onGenerate, isGenerating }: CollageEditorProps) 
                     onSelect={() => setSelectedId(item.id)}
                     onUpdate={(updates) => {
                       setItems((prev) =>
-                        prev.map((i) =>
-                          i.id === item.id ? { ...i, ...updates } : i
-                        )
+                        prev.map((canvasItem) => {
+                          if (canvasItem.id !== item.id) {
+                            return canvasItem
+                          }
+                          if (canvasItem.type !== 'text') {
+                            return canvasItem
+                          }
+                          return { ...canvasItem, ...updates }
+                        })
                       )
                     }}
                   />
@@ -516,8 +527,6 @@ function TextItemComponent({
         onTransformEnd={(e) => {
           const node = e.target
           const scaleX = node.scaleX()
-          const scaleY = node.scaleY()
-
           onUpdate({
             x: node.x(),
             y: node.y(),

@@ -80,6 +80,20 @@ export const translations = {
       paymentFailed: 'Ошибка при оплате',
       generationFailed: 'Ошибка при генерации обложки',
     },
+    packages: {
+      title: 'Выберите пакет генераций',
+      currency: 'Валюта',
+      generations: 'генераций',
+      perGeneration: 'генерация',
+      popular: 'Популярный',
+      highQuality: 'Высокое качество',
+      noWatermark: 'Без водяных знаков',
+      buy: 'Купить',
+      freePlan: 'Бесплатный план: 1 генерация в день',
+    },
+    generations: {
+      remaining: 'Генераций:',
+    },
   },
   en: {
     // Common
@@ -162,20 +176,20 @@ export const translations = {
       paymentFailed: 'Payment failed',
       generationFailed: 'Failed to generate cover',
     },
-  },
-  packages: {
-    title: { ru: 'Выберите пакет генераций', en: 'Choose Generation Package' },
-    currency: { ru: 'Валюта', en: 'Currency' },
-    generations: { ru: 'генераций', en: 'generations' },
-    perGeneration: { ru: 'генерация', en: 'per generation' },
-    popular: { ru: 'Популярный', en: 'Popular' },
-    highQuality: { ru: 'Высокое качество', en: 'High Quality' },
-    noWatermark: { ru: 'Без водяных знаков', en: 'No Watermarks' },
-    buy: { ru: 'Купить', en: 'Buy' },
-    freePlan: { ru: 'Бесплатный план: 1 генерация в день', en: 'Free Plan: 1 generation per day' },
-  },
-  generations: {
-    remaining: { ru: 'Генераций:', en: 'Generations:' },
+    packages: {
+      title: 'Choose Generation Package',
+      currency: 'Currency',
+      generations: 'generations',
+      perGeneration: 'per generation',
+      popular: 'Popular',
+      highQuality: 'High Quality',
+      noWatermark: 'No Watermarks',
+      buy: 'Buy',
+      freePlan: 'Free Plan: 1 generation per day',
+    },
+    generations: {
+      remaining: 'Generations:',
+    },
   },
 }
 
@@ -203,4 +217,3 @@ export function t(key: TranslationKey, lang: Language = 'ru', params?: Record<st
   
   return value
 }
-

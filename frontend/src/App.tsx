@@ -168,7 +168,7 @@ function App() {
                     <div className="hidden sm:block text-sm">
                       <div className="font-medium">{user.name}</div>
                       <div className="text-xs text-muted-foreground">
-                        {t('generations.remaining', 'Генераций:')} {user.generations_remaining || 0}
+                        {t('generations.remaining')} {user.generations_remaining || 0}
                       </div>
                     </div>
                   </div>
@@ -179,7 +179,7 @@ function App() {
                     className="flex items-center gap-2"
                   >
                     <ShoppingCart className="w-4 h-4" />
-                    <span className="hidden sm:inline">{t('packages.buy', 'Купить')}</span>
+                    <span className="hidden sm:inline">{t('packages.buy')}</span>
                   </Button>
                   <Button
                     variant="outline"
@@ -306,4 +306,3 @@ function App() {
 }
 
 export default App
-
