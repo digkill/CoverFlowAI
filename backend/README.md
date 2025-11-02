@@ -92,6 +92,26 @@ go run main.go
 
 Сервер запустится на порту 8080 (или на порту, указанном в переменной окружения PORT).
 
+## Запуск в Docker
+
+Для контейнерного запуска используется `Dockerfile`, основанный на `golang:latest`.
+
+1. Скопируйте `.env.example` в `.env` и заполните значения.
+2. Соберите образ:
+   ```bash
+   docker build -t coverflow-backend .
+   ```
+3. Запустите контейнер (пример с пробросом порта и .env-файлом):
+   ```bash
+   docker run --env-file .env \
+     -p 8080:8080 \
+     -v $(pwd)/data:/srv/app/data \
+     -v $(pwd)/storage:/srv/app/storage \
+     coverflow-backend
+   ```
+
+Контейнер создаст каталоги `data/` и `storage/` внутри, они проброшены во внешние тома для сохранения базы SQLite и обложек. Redis и другие зависимости должны быть доступны контейнеру по адресу, указанному в `.env`.
+
 ## API Endpoints
 
 ### GET /api/health
@@ -149,4 +169,3 @@ go run main.go
 - `GET /api/image/:imageId` - получить изображение из Redis кеша (используется Nano Banana API)
 - `POST /api/generate-cover` - сгенерировать обложку
 - `GET /storage/*` - статический доступ к сохраненным обложкам
-

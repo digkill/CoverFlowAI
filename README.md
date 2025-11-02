@@ -93,6 +93,24 @@ go run main.go
 
 Backend будет доступен на http://localhost:8080
 
+### Backend в Docker
+
+1. Перейдите в директорию backend и подготовьте `.env` (можно взять `.env.example`).
+2. Соберите образ:
+   ```bash
+   docker build -t coverflow-backend ./backend
+   ```
+3. Запустите контейнер:
+   ```bash
+   docker run --env-file backend/.env \
+     -p 8080:8080 \
+     -v $(pwd)/backend/data:/srv/app/data \
+     -v $(pwd)/backend/storage:/srv/app/storage \
+     coverflow-backend
+   ```
+
+Контейнер использует образ `golang:latest`, поэтому внутри доступна последняя версия Go. Для работы также нужен Redis, запущенный отдельно и доступный по адресу, указанному в `.env`.
+
 ## Использование
 
 1. Откройте frontend в браузере (http://localhost:3000)
@@ -118,4 +136,3 @@ Backend будет доступен на http://localhost:8080
 - Gin (HTTP framework)
 - Nano Banana Edit API (основной провайдер)
 - OpenAI API (DALL-E 3, альтернативный провайдер)
-
